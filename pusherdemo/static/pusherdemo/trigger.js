@@ -1,5 +1,3 @@
-var csrftoken = getCookie('csrftoken');
-
 /*
    Log debug information to the browser console.
    */
