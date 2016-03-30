@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pusher + Django Private</title>
+  </head>
+  <body>
+
+
+    <h1>Pusher Presence Channel Code Sample</h1>
+
+    <p class="description">
+      <a href="https://pusher.com/docs/presence_channels">Presence channels</a> are channels that require authentication, much like private channels. They provide real-time information about other users that are subscribed to the channel. You receive an initial list of users via the <code>pusher:subscription_succeeded</code> event, events when users come online via <code>pusher:member_added</code> and events when users go offline via <code>pusher:member_removed</code>.
+    </p>
+
+    <p class="use-case">
+      The most common use case for Presence channels is to build live user lists within a chat rooms scenario. However, don't let this restrict your use case.
+    </p>
+
+    <h2>Instructions</h2>
+
+    <p class="page-instructions">
+      To use this code example, take a look at the source of <a href="https://github.com/pusher-community/gs-pusher-rails/blob/master/app/views/presence/index.html.erb">views/presence/index.html.erb</a> and <a href="https://github.com/pusher-community/gs-pusher-rails/blob/master/app/controllers/presence_controller.rb">presence_controller.rb</a>. Additionally, view the output to the JavaScript console in your browser developer tools.
+    </p>
+
+    {% include "pusherdemo/js.html" %}
+    {% csrf_token %}
+    <script src="{% static "pusherdemo/presence.js" %}"></script>
+
+  </body>
+</html>

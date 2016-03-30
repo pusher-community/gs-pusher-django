@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from pusher import Pusher
+from random import randint
+
 
 pusher = Pusher(
     app_id='193389',
@@ -23,11 +25,27 @@ def private(request):
     return render(request, 'pusherdemo/private.html')
 
 def private_auth(request):
-    print request.POST
     auth = pusher.authenticate(
         channel = request.POST['channel_name'],
         socket_id = request.POST['socket_id']
     )
     return JsonResponse(auth)
+
+def presence(request):
+    return render(request, 'pusherdemo/presence.html')
+
+def presence_auth(request):
+    auth = pusher.authenticate(
+        channel = request.POST['channel_name'],
+        socket_id = request.POST['socket_id'],
+        custom_data = {
+            'user_info': {
+                'name': 'Donna Demo'
+            },
+            'user_id': randint(0, 1000)
+        }
+    )
+    return JsonResponse(auth)
+
 
 
