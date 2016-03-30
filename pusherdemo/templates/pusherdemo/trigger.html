@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pusher + Django Trigger</title>
+  </head>
+  <body>
+
+    <h1>Pusher Trigger Event Code Sample</h1>
+
+    <p class="description">
+      Pusher is an Evented PubSub system. This example shows you how to trigger an event on a channel from the server.
+    </p>
+
+    <p class="use-case">
+      This demonstrates the most common and simple use case, simple messaging. It's the foundation upon which most real-time applications and use cases are built upon.
+    </p>
+
+    <h2>Instructions</h2>
+
+    <p class="page-instructions">
+      Take a look at the source on <a href="https://github.com/pusher-community/gs-pusher-django">GitHub</a>. View the output to the JavaScript console in your browser developer tools.
+    </p>
+
+    <form id="trigger_form" method="post" action="/trigger_submit">
+      {% csrf_token %}
+      <p>
+        Enter a message in the <code>input</code> and click the <code>Trigger</code> button. This will result in an AJAX request being sent to the <code>/trigger</code> route in <code>server.js</code> which will trigger an event via Pusher.
+      </p>
+      <input id="trigger_message" type="text" name="message" placeholder="enter text" />
+      <input type="submit" value="Trigger" />
+    </form>
+
+    <p>Please note, this example also uses jQuery from a CDN.</p>
+
+    {% include "pusherdemo/js.html" %}
+
+  </body>
+</html>
