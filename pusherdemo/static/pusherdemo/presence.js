@@ -9,7 +9,7 @@ Pusher.log = function(msg) {
    */
 var csrftoken = getCookie('csrftoken');
 var options = {
-  authEndpoint: '/pusher/presence_auth',
+  authEndpoint: '/presence_auth',
   auth: {
     headers: {
       'X-CSRFToken': csrftoken

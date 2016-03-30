@@ -8,9 +8,8 @@ Pusher.log = function(msg) {
    Set options so that `/private_auth` is called when the presence channel is subscribed to.
    */
 var csrftoken = getCookie('csrftoken');
-console.log('token', csrftoken);
 var options = {
-  authEndpoint: '/pusher/private_auth',
+  authEndpoint: '/private_auth',
   auth: {
     headers: {
       'X-CSRFToken': csrftoken
