@@ -10,6 +10,9 @@ pusher = Pusher(
     secret='dc42bd47030e07387297'
 )
 
+def index(request):
+    return render(request, 'pusherdemo/index.html')
+
 def trigger(request):
     return render(request, 'pusherdemo/trigger.html')
 
